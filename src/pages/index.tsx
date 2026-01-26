@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { createProject, deleteProject, getProjects } from "@/lib/api/service";
+import { getProjects } from "@/lib/api/service";
+import ProjectCard from "@/components/atoms/projectCard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,31 +37,8 @@ export default function Home({ projects }: { projects: any[] }) {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <main className={styles.main}>
-          <button
-            onClick={async () => {
-              const newProject = {
-                title: "New Project",
-                description: "This is a new project",
-                tech: "tech 1",
-                image: "image 1",
-              };
-              const createdProject = await createProject(newProject);
-              console.log("Created Project:", createdProject);
-            }}
-          >
-            Create New Project
-          </button>
           {projects.map((project) => (
-            <div key={project.id}>
-              <h2>{project.title}</h2>
-              <button
-                onClick={async () => {
-                  await deleteProject(project.id);
-                }}
-              >
-                Delete
-              </button>
-            </div>
+            <ProjectCard key={project.id} project={project} />
           ))}
         </main>
       </div>

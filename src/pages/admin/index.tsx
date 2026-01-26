@@ -17,7 +17,7 @@ export async function getServerSideProps() {
   };
 }
 
-const AdminPage = ({ projects: initialProjects }) => {
+const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
   const [projects, setProjects] = useState(initialProjects);
 
   {
@@ -120,7 +120,7 @@ const AdminPage = ({ projects: initialProjects }) => {
                 onChange={(e) => setEditedImageUrl(e.target.value)}
               />
             ) : (
-              <img src={project.image} alt={project.title} />
+              <img src={project.image} alt={project.title} width="300" />
             )}
 
             {/* Delete project */}
