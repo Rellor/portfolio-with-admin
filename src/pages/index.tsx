@@ -37,9 +37,12 @@ export default function Home({ projects }: { projects: any[] }) {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <main className={styles.main}>
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          <h1 className={styles.title}>My Projects</h1>
+          <div className={styles.grid}>
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
         </main>
       </div>
     </>

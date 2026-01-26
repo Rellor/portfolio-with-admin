@@ -18,17 +18,31 @@
 }
 
 .main {
-  display: grid;
   width: 100%;
   max-width: 80rem;
+  padding: 2rem 0rem;
+}
+
+.grid {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  padding: 1rem;
+  background-color: var(--secondary-background);
+  border-radius: 1.5rem;
+}
+
+.title {
+  grid-column: span 3;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
 }
 
 .projectCard {
   position: relative;
   aspect-ratio: 1 / 1;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   overflow: hidden;
 }
 
