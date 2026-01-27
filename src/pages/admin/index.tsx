@@ -11,6 +11,7 @@ import { Check, Pen, Plus, TrashIcon, X } from "lucide-react";
 import Input from "@/components/atoms/input";
 import styles from "@/styles/Home.module.css";
 import AdminCard from "@/components/atoms/adminCard";
+import Button from "@/components/atoms/button";
 
 export async function getServerSideProps() {
   const projects = await getProjects();
@@ -52,10 +53,13 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
               Welcome to the admin panel. Here you can manage your projects.
             </p>
           </div>
-          <button onClick={() => setCreatingProject(true)}>
+          <Button
+            buttonStyle="buttonGreen"
+            onClick={() => setCreatingProject(true)}
+          >
             New project
-            <Plus width={16} height={16} />
-          </button>
+            <Plus width={24} height={24} />
+          </Button>
         </div>
 
         {/* Create new project */}

@@ -161,14 +161,26 @@
 /* admin card styles */
 .adminCard {
   display: flex;
+  justify-content: space-between;
   gap: 0.25rem;
+  width: 100%;
+}
+
+.cardInfo {
+  display: flex;
+  gap: 1rem;
 }
 
 .cardImage {
-  width: 6rem;
+  width: auto;
   height: 6rem;
   border-radius: 0.5rem;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.cardButtons {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .cardButton {
@@ -177,4 +189,21 @@
   height: fit-content;
   aspect-ratio: 1/1;
   border-radius: 0.25rem;
+}
+
+/* button styles */
+.buttonBase {
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 10rem;
+  font-weight: bold;
+  font-family: var(--font-geist-sans);
+}
+
+.buttonGreen {
+  background-color: var(--accent-color);
+  color: var(--text-secondary);
+  border: none;
 }
