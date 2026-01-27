@@ -25,6 +25,43 @@
   padding: 2rem 0rem;
 }
 
+.input {
+  width: 30rem;
+  max-width: 30rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--button-secondary-border);
+  font-family: var(--font-geist-sans);
+  border-radius: 0.1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.createProjectForm {
+  width: 30rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  position: absolute;
+  border-radius: 0.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--secondary-background);
+  padding: 2rem;
+}
+
+.createProjectForm button:nth-last-child(1) {
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  cursor: pointer;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -105,6 +142,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }

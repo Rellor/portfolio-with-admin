@@ -5,7 +5,7 @@ export default function ProjectCard({ project }: { project: any }) {
     <div className={styles.projectCard}>
       <div className={styles.content}>
         <h2>{project.title}</h2>
-        <p>{project.description}</p>
+        <p>{project.shortDescription}</p>
       </div>
       <img
         className={styles.overlay}

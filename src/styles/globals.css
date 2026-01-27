@@ -26,3 +26,12 @@ p {
   margin: 0;
   padding: 0;
 }
+
+textarea {
+  min-height: 10rem;
+}
+
+button {
+  width: fit-content;
+  cursor: pointer;
+}
