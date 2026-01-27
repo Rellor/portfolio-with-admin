@@ -7,9 +7,10 @@ import {
   updateProject,
   getProjects,
 } from "@/lib/api/service";
-import { Check, Pen, TrashIcon, X } from "lucide-react";
+import { Check, Pen, Plus, TrashIcon, X } from "lucide-react";
 import Input from "@/components/atoms/input";
 import styles from "@/styles/Home.module.css";
+import AdminCard from "@/components/atoms/adminCard";
 
 export async function getServerSideProps() {
   const projects = await getProjects();
@@ -44,15 +45,21 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>Admin Panel</h1>
-        <p>Welcome to the admin panel. Here you can manage your projects.</p>
+        <div className={styles.adminHeader}>
+          <div>
+            <h1>Admin Panel</h1>
+            <p>
+              Welcome to the admin panel. Here you can manage your projects.
+            </p>
+          </div>
+          <button onClick={() => setCreatingProject(true)}>
+            New project
+            <Plus width={16} height={16} />
+          </button>
+        </div>
 
         {/* Create new project */}
         <div>
-          <button onClick={() => setCreatingProject(true)}>
-            Create New Project
-          </button>
-
           {creatingProject &&
             createPortal(
               <div className={styles.createProjectForm}>
@@ -107,6 +114,9 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
         </div>
 
         <div>
+          {projects.map((project) => (
+            <AdminCard key={project.id} project={project} />
+          ))}
           {projects.map((project) => (
             <div key={project.id}>
               {/* Update title */}

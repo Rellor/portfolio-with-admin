@@ -25,6 +25,7 @@
   padding: 2rem 0rem;
 }
 
+/* input styles */
 .input {
   width: 30rem;
   max-width: 30rem;
@@ -62,6 +63,7 @@
   cursor: pointer;
 }
 
+/* Grid styles */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -71,6 +73,7 @@
   border-radius: 1.5rem;
 }
 
+/* Title styles */
 .title {
   grid-column: span 3;
   text-align: center;
@@ -78,6 +81,7 @@
   color: var(--text-primary);
 }
 
+/* Project Card styles */
 .projectCard {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -144,4 +148,33 @@
   justify-content: center;
   height: 2.5rem;
   width: 2.5rem;
+}
+
+/* admin page styles */
+.adminHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+/* admin card styles */
+.adminCard {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.cardImage {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.cardButton {
+  background-color: none;
+  border: none;
+  height: fit-content;
+  aspect-ratio: 1/1;
+  border-radius: 0.25rem;
 }
