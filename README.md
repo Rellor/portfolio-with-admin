@@ -18,3 +18,4 @@ bun dev
 - Mobile responsiveness
 - Login system for admin panel
 - Input security (For user and API)
+- Custom image uploading
