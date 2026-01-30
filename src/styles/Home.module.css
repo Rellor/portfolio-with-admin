@@ -213,3 +213,35 @@
   color: var(--text-secondary);
   border: none;
 }
+
+/* Loading spinner styles */
+.loadingSpinner {
+  border: 4px solid #e4eff1;
+  border-top: 4px solid var(--accent-color);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Project page styles */
+.projectTitle {
+  text-align: center;
+  width: fit-content;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}

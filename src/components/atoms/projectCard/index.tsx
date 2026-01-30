@@ -1,8 +1,12 @@
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 export default function ProjectCard({ project }: { project: any }) {
   return (
-    <div className={styles.projectCard}>
+    <Link
+      href={`/${project.title.replace(/\s+/g, "")}-${project.id}`}
+      className={styles.projectCard}
+    >
       <div className={styles.content}>
         <h2>{project.title}</h2>
         <p>{project.shortDescription}</p>
@@ -13,6 +17,6 @@ export default function ProjectCard({ project }: { project: any }) {
         alt={project.title}
         width="300"
       />
-    </div>
+    </Link>
   );
 }
