@@ -7,7 +7,7 @@ import {
   updateProject,
   getProjects,
 } from "@/lib/api/service";
-import { Check, Pen, Plus, TrashIcon, X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import Input from "@/components/atoms/input";
 import styles from "@/styles/Home.module.css";
 import AdminCard from "@/components/atoms/adminCard";
@@ -28,7 +28,6 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
   {
     /* Edit state management */
   }
-  const [editProject, setEditProject] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
   const [editedDescription, setEditedDescription] = useState("");
   const [editedShortDescription, setEditedShortDescription] = useState("");
@@ -119,101 +118,29 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
 
         <div>
           {projects.map((project) => (
-            <AdminCard key={project.id} project={project} />
-          ))}
-          {projects.map((project) => (
-            <div key={project.id}>
-              {/* Update title */}
-              {editProject === project.id ? (
-                <input
-                  type="text"
-                  value={editedTitle}
-                  onChange={(e) => setEditedTitle(e.target.value)}
-                />
-              ) : (
-                <h2>{project.title}</h2>
-              )}
-
-              {/* Update short description */}
-              {editProject === project.id ? (
-                <input
-                  type="text"
-                  value={editedShortDescription}
-                  onChange={(e) => setEditedShortDescription(e.target.value)}
-                />
-              ) : (
-                <p>{project.shortDescription}</p>
-              )}
-
-              {/* Update description */}
-              {editProject === project.id ? (
-                <input
-                  type="text"
-                  value={editedDescription}
-                  onChange={(e) => setEditedDescription(e.target.value)}
-                />
-              ) : (
-                <p>{project.description}</p>
-              )}
-
-              {/* Update image */}
-              {editProject === project.id ? (
-                <input
-                  type="text"
-                  value={editedImageUrl}
-                  onChange={(e) => setEditedImageUrl(e.target.value)}
-                />
-              ) : (
-                <img src={project.image} alt={project.title} width="300" />
-              )}
-
-              {/* Delete project */}
-              <button
-                onClick={async () => {
-                  await deleteProject(project.id);
-                  const updatedProjects = await getProjects();
-                  setProjects(updatedProjects);
-                }}
-              >
-                <TrashIcon />
-              </button>
-
-              {/* Edit project */}
-              <button
-                onClick={() => {
-                  setEditProject(project.id);
-                  setEditedTitle(project.title);
-                  setEditedShortDescription(project.shortDescription);
-                  setEditedDescription(project.description);
-                  setEditedImageUrl(project.image);
-                }}
-              >
-                <Pen />
-              </button>
-
-              {/* Save or cancel edits */}
-              {editProject === project.id && (
-                <>
-                  <button
-                    onClick={async () => {
-                      await updateProject(project.id, {
-                        title: editedTitle,
-                        description: editedDescription,
-                        image: editedImageUrl,
-                      });
-                      setEditProject(null);
-                      const updatedProjects = await getProjects();
-                      setProjects(updatedProjects);
-                    }}
-                  >
-                    <Check />
-                  </button>
-                  <button onClick={() => setEditProject(null)}>
-                    <X />
-                  </button>
-                </>
-              )}
-            </div>
+            <AdminCard
+              key={project.id}
+              project={project}
+              setTitle={setEditedTitle}
+              setShortDescription={setEditedShortDescription}
+              setDescription={setEditedDescription}
+              setImage={setEditedImageUrl}
+              deleteOnclick={async () => {
+                await deleteProject(project.id);
+                const updatedProjects = await getProjects();
+                setProjects(updatedProjects);
+              }}
+              saveEdits={async () => {
+                await updateProject(project.id, {
+                  title: editedTitle,
+                  description: editedDescription,
+                  shortDescription: editedShortDescription,
+                  image: editedImageUrl,
+                });
+                const updatedProjects = await getProjects();
+                setProjects(updatedProjects);
+              }}
+            />
           ))}
         </div>
       </main>
