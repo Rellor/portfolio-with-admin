@@ -63,6 +63,12 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
 
         {/* Create new project */}
         <div>
+          {creatingProject && (
+            <button
+              onClick={() => setCreatingProject(false)}
+              className={styles.createProjectBackOverlay}
+            />
+          )}
           {creatingProject &&
             createPortal(
               <div className={styles.createProjectForm}>
@@ -70,27 +76,28 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
                   type="text"
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  placeholder="New project title"
+                  placeholder="Project title"
                 />
                 <Input
                   type="text"
                   value={newShortDescription}
                   onChange={(e) => setNewShortDescription(e.target.value)}
-                  placeholder="New project short description"
+                  placeholder="Project short description"
                 />
                 <Input
                   type="textarea"
                   value={newDescription}
                   onChange={(e) => setNewDescription(e.target.value)}
-                  placeholder="New project description"
+                  placeholder="Project description"
                 />
                 <Input
                   type="text"
                   value={newImageUrl}
                   onChange={(e) => setNewImageUrl(e.target.value)}
-                  placeholder="New project image URL"
+                  placeholder="Project image URL"
                 />
-                <button
+                <Button
+                  buttonStyle="buttonGreen"
                   onClick={async () => {
                     await createProject({
                       title: newTitle,
@@ -107,7 +114,7 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
                   }}
                 >
                   Create Project
-                </button>
+                </Button>
                 <button onClick={() => setCreatingProject(false)}>
                   <X height={16} width={16} />
                 </button>

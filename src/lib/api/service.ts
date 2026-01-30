@@ -1,8 +1,6 @@
-const API_URL = "https://696fbbaba06046ce6187b486.mockapi.io/api/v1/projects";
-
 export async function getProjects() {
   try {
-    const res = await fetch(API_URL);
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL as string);
     const projects = await res.json();
     return projects;
   } catch (error) {
@@ -13,7 +11,7 @@ export async function getProjects() {
 
 export async function createProject(data: any) {
   try {
-    const res = await fetch(API_URL, {
+    const res = await fetch(process.env.API_URL as string, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +28,7 @@ export async function createProject(data: any) {
 
 export async function updateProject(id: string, data: any) {
   try {
-    const res = await fetch(`${API_URL}/${id}`, {
+    const res = await fetch(`${process.env.API_URL as string}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +45,7 @@ export async function updateProject(id: string, data: any) {
 
 export async function deleteProject(id: string) {
   try {
-    const res = await fetch(`${API_URL}/${id}`, {
+    const res = await fetch(`${process.env.API_URL as string}/${id}`, {
       method: "DELETE",
     });
     const project = await res.json();
