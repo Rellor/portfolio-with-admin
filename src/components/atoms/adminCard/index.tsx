@@ -64,6 +64,8 @@ export default function AdminCard({
             <p>{shortDescription}</p>
           )}
           {editing ? (
+            //TODO make sure linebreaks are also handled in the value
+            //TOTO Also make the intputs responsive if the textarea gets too long
             <Input
               type="textarea"
               value={description}
@@ -73,7 +75,14 @@ export default function AdminCard({
               }}
             />
           ) : (
-            <p>{description}</p>
+            <p>
+              {description.split("##").map((line: string, index: number) => (
+                <span key={index}>
+                  {line}
+                  {index < description.split("##").length - 1 && <br />}
+                </span>
+              ))}
+            </p>
           )}
           {editing && (
             <Input

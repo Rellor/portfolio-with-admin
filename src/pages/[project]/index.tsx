@@ -54,7 +54,16 @@ export default function ProjectPage() {
             width="600"
           />
           <h1 className={styles.projectTitle}>{project.title}</h1>
-          <p>{project.description}</p>
+          <p className={styles.projectDescription}>
+            {project.description
+              .split("##")
+              .map((line: string, index: number) => (
+                <span key={index}>
+                  {line}
+                  {index < project.description.split("##").length - 1 && <br />}
+                </span>
+              ))}
+          </p>
         </main>
       </div>
     </>

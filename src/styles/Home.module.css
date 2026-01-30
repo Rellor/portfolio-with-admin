@@ -61,7 +61,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--secondary-background);
+  background-color: var(--background);
   padding: 2rem;
 }
 
@@ -296,6 +296,10 @@
 
 .projectImage {
   border-radius: 1rem;
+}
+
+.projectDescription {
+  max-width: 40rem;
 }
 
 /* About page styles */

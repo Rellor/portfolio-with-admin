@@ -141,7 +141,7 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
               saveEdits={async () => {
                 await updateProject(project.id, {
                   title: editedTitle,
-                  description: editedDescription,
+                  description: editedDescription.split("\n").join("##"),
                   shortDescription: editedShortDescription,
                   image: editedImageUrl,
                 });

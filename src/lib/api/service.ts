@@ -11,7 +11,7 @@ export async function getProjects() {
 
 export async function createProject(data: any) {
   try {
-    const res = await fetch(process.env.API_URL as string, {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL as string, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,13 +28,16 @@ export async function createProject(data: any) {
 
 export async function updateProject(id: string, data: any) {
   try {
-    const res = await fetch(`${process.env.API_URL as string}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL as string}/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    });
+    );
     const project = await res.json();
     return project;
   } catch (error) {
@@ -45,9 +48,12 @@ export async function updateProject(id: string, data: any) {
 
 export async function deleteProject(id: string) {
   try {
-    const res = await fetch(`${process.env.API_URL as string}/${id}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL as string}/${id}`,
+      {
+        method: "DELETE",
+      },
+    );
     const project = await res.json();
     return project;
   } catch (error) {
