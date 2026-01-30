@@ -116,7 +116,8 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
             )}
         </div>
 
-        <div>
+        {/* List of projects with edit/delete options */}
+        <div className={styles.adminCardContainer}>
           {projects.map((project) => (
             <AdminCard
               key={project.id}

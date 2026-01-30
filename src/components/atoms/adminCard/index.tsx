@@ -65,7 +65,7 @@ export default function AdminCard({
           )}
           {editing ? (
             <Input
-              type="text"
+              type="textarea"
               value={description}
               onChange={(e) => {
                 setDescriptionLocal(e.target.value);

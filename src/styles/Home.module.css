@@ -159,6 +159,12 @@
 }
 
 /* admin card styles */
+.adminCardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .adminCard {
   display: flex;
   justify-content: space-between;
