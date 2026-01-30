@@ -47,7 +47,12 @@ export default function ProjectPage() {
       </Head>
       <div className={`${styles.page}`}>
         <main className={styles.main}>
-          <img src={project.image} alt={project.title} width="600" />
+          <img
+            className={styles.projectImage}
+            src={project.image}
+            alt={project.title}
+            width="600"
+          />
           <h1 className={styles.projectTitle}>{project.title}</h1>
           <p>{project.description}</p>
         </main>

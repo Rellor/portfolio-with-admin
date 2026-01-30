@@ -15,7 +15,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-geist-sans);
   background-color: var(--background);
 }
 
@@ -31,7 +30,6 @@
   max-width: 30rem;
   padding: 0.25rem 0.5rem;
   border: 1px solid var(--button-secondary-border);
-  font-family: var(--font-geist-sans);
   border-radius: 0.1rem;
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -244,4 +242,8 @@
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   color: var(--text-primary);
+}
+
+.projectImage {
+  border-radius: 1rem;
 }

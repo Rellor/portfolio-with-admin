@@ -1,18 +1,7 @@
 import Head from "next/head";
-import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { getProjects } from "@/lib/api/service";
 import ProjectCard from "@/components/atoms/projectCard";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export async function getServerSideProps() {
   const projects = await getProjects();
@@ -33,9 +22,7 @@ export default function Home({ projects }: { projects: any[] }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
+      <div className={`${styles.page}`}>
         <main className={styles.main}>
           <h1 className={styles.title}>My Projects</h1>
           <div className={styles.grid}>
