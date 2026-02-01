@@ -21,7 +21,7 @@
 .main {
   width: 100%;
   max-width: 80rem;
-  padding: 2rem 0rem;
+  padding: 2rem 1rem;
 }
 
 /* input styles */
@@ -89,7 +89,6 @@
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    margin: 1rem;
   }
 
   .title {
@@ -100,7 +99,6 @@
 @media (max-width: 425px) {
   .grid {
     grid-template-columns: 1fr;
-    margin: 1rem;
   }
 
   .title {
@@ -337,6 +335,8 @@
 
 .projectImage {
   border-radius: 1rem;
+  max-width: 100%;
+  height: auto;
 }
 
 .projectDescription {
@@ -362,7 +362,6 @@
 @media (max-width: 425px) {
   .aboutContent {
     flex-direction: column;
-    margin: 1rem;
   }
 }
 
