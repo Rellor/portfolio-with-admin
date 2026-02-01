@@ -2,6 +2,7 @@ import styles from "@/styles/Home.module.css";
 import { Check, Pen, TrashIcon, X } from "lucide-react";
 import { useState } from "react";
 import Input from "@/components/atoms/input";
+import Checkbox from "@/components/atoms/checkbox";
 
 export default function AdminCard({
   project,
@@ -88,7 +89,7 @@ export default function AdminCard({
             </p>
           )}
           {editing && (
-            <>
+            <div className={styles.imageAdmin}>
               <Input
                 type="text"
                 value={image}
@@ -97,16 +98,16 @@ export default function AdminCard({
                   setImage(e.target.value);
                 }}
               />
-              <label>Fit image</label>
-              <input
-                type="checkbox"
+
+              <Checkbox
                 checked={fitImage}
                 onChange={(e) => {
                   setFitImageLocal(e.target.checked);
                   setFitImage(e.target.checked);
                 }}
+                label="Fit image"
               />
-            </>
+            </div>
           )}
         </div>
       </div>

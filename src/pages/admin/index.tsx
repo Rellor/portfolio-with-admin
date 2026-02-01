@@ -12,6 +12,7 @@ import Input from "@/components/atoms/input";
 import styles from "@/styles/Home.module.css";
 import AdminCard from "@/components/atoms/adminCard";
 import Button from "@/components/atoms/button";
+import Checkbox from "@/components/atoms/checkbox";
 
 export async function getServerSideProps() {
   const projects = await getProjects();
@@ -98,13 +99,12 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
                   onChange={(e) => setNewImageUrl(e.target.value)}
                   placeholder="Project image URL"
                 />
-                <label>Fit image</label>
-                <input
-                  type="checkbox"
+                <Checkbox
                   checked={newFitImage}
                   onChange={(e) => {
                     setNewFitImage(e.target.checked);
                   }}
+                  label="Fit image"
                 />
                 <Button
                   buttonStyle="buttonGreen"
