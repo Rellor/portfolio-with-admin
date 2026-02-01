@@ -24,6 +24,12 @@
   padding: 2rem 0rem;
 }
 
+.checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
 /* input styles */
 .input {
   width: 30rem;
@@ -124,6 +130,13 @@
   z-index: 0;
   filter: brightness(0.7);
   transition: filter 0.1s ease-in-out;
+  background-color: var(--background);
+}
+
+.contain {
+  object-fit: contain;
+  padding: 1rem;
+  width: -webkit-fill-available;
 }
 
 /* Navbar styles */
@@ -194,7 +207,7 @@
 .adminCardContainer {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .adminCard {
@@ -202,18 +215,24 @@
   justify-content: space-between;
   gap: 0.25rem;
   width: 100%;
+  border-bottom: 1px solid var(--button-secondary-border);
+  padding-bottom: 2rem;
 }
 
 .cardInfo {
   display: flex;
+  max-width: 60rem;
   gap: 1rem;
 }
 
 .cardImage {
-  width: auto;
-  height: 6rem;
+  width: 100%;
+  max-width: 10rem;
+  aspect-ratio: 3/2;
+  height: auto;
   border-radius: 0.5rem;
   object-fit: contain;
+  margin-bottom: auto;
 }
 
 .cardButtons {

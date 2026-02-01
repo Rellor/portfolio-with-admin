@@ -32,6 +32,7 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
   const [editedDescription, setEditedDescription] = useState("");
   const [editedShortDescription, setEditedShortDescription] = useState("");
   const [editedImageUrl, setEditedImageUrl] = useState("");
+  const [editedFitImage, setEditedFitImage] = useState(false);
 
   {
     /* Create project state management */
@@ -41,6 +42,7 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
   const [newDescription, setNewDescription] = useState("");
   const [newShortDescription, setNewShortDescription] = useState("");
   const [newImageUrl, setNewImageUrl] = useState("");
+  const [newFitImage, setNewFitImage] = useState(false);
 
   return (
     <div className={styles.page}>
@@ -96,6 +98,14 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
                   onChange={(e) => setNewImageUrl(e.target.value)}
                   placeholder="Project image URL"
                 />
+                <label>Fit image</label>
+                <input
+                  type="checkbox"
+                  checked={newFitImage}
+                  onChange={(e) => {
+                    setNewFitImage(e.target.checked);
+                  }}
+                />
                 <Button
                   buttonStyle="buttonGreen"
                   onClick={async () => {
@@ -104,6 +114,7 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
                       description: newDescription,
                       shortDescription: newShortDescription,
                       image: newImageUrl,
+                      containImage: newFitImage,
                     });
                     const updatedProjects = await getProjects();
                     setProjects(updatedProjects);
@@ -111,6 +122,7 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
                     setNewDescription("");
                     setNewShortDescription("");
                     setNewImageUrl("");
+                    setNewFitImage(false);
                   }}
                 >
                   Create Project
@@ -130,6 +142,7 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
               key={project.id}
               project={project}
               setTitle={setEditedTitle}
+              setFitImage={setEditedFitImage}
               setShortDescription={setEditedShortDescription}
               setDescription={setEditedDescription}
               setImage={setEditedImageUrl}
@@ -144,6 +157,7 @@ const AdminPage = ({ projects: initialProjects }: { projects: any[] }) => {
                   description: editedDescription.split("\n").join("##"),
                   shortDescription: editedShortDescription,
                   image: editedImageUrl,
+                  containImage: editedFitImage,
                 });
                 const updatedProjects = await getProjects();
                 setProjects(updatedProjects);

@@ -9,6 +9,7 @@ export default function AdminCard({
   setShortDescription,
   setDescription,
   setImage,
+  setFitImage,
 
   deleteOnclick,
   saveEdits,
@@ -18,6 +19,7 @@ export default function AdminCard({
   setShortDescription: React.Dispatch<React.SetStateAction<string>>;
   setDescription: React.Dispatch<React.SetStateAction<string>>;
   setImage: React.Dispatch<React.SetStateAction<string>>;
+  setFitImage: React.Dispatch<React.SetStateAction<boolean>>;
   deleteOnclick: () => void;
   saveEdits?: () => void;
 }) {
@@ -28,6 +30,7 @@ export default function AdminCard({
   );
   const [description, setDescriptionLocal] = useState(project.description);
   const [image, setImageLocal] = useState(project.image);
+  const [fitImage, setFitImageLocal] = useState(project.containImage);
 
   return (
     <div className={styles.adminCard}>
@@ -85,14 +88,25 @@ export default function AdminCard({
             </p>
           )}
           {editing && (
-            <Input
-              type="text"
-              value={image}
-              onChange={(e) => {
-                setImageLocal(e.target.value);
-                setImage(e.target.value);
-              }}
-            />
+            <>
+              <Input
+                type="text"
+                value={image}
+                onChange={(e) => {
+                  setImageLocal(e.target.value);
+                  setImage(e.target.value);
+                }}
+              />
+              <label>Fit image</label>
+              <input
+                type="checkbox"
+                checked={fitImage}
+                onChange={(e) => {
+                  setFitImageLocal(e.target.checked);
+                  setFitImage(e.target.checked);
+                }}
+              />
+            </>
           )}
         </div>
       </div>
@@ -115,11 +129,11 @@ export default function AdminCard({
           className={styles.cardButton}
           onClick={() => {
             if (!editing) {
-              // Entering edit mode - sync parent state with current values
               setTitle(title);
               setShortDescription(shortDescription);
               setDescription(description);
               setImage(image);
+              setFitImage(fitImage);
             }
             setEditing(!editing);
           }}

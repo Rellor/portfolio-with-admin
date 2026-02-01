@@ -12,7 +12,7 @@ export default function ProjectCard({ project }: { project: any }) {
         <p>{project.shortDescription}</p>
       </div>
       <img
-        className={styles.overlay}
+        className={`${styles.overlay} ${project.containImage ? styles.contain : ""}`}
         src={project.image}
         alt={project.title}
         width="300"
