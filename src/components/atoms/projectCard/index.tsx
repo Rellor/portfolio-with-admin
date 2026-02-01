@@ -1,5 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProjectCard({ project }: { project: any }) {
   return (
@@ -11,11 +12,14 @@ export default function ProjectCard({ project }: { project: any }) {
         <h2>{project.title}</h2>
         <p>{project.shortDescription}</p>
       </div>
-      <img
+      {/* used next/image for optimized image handling */}
+      <Image
         className={`${styles.overlay} ${project.containImage ? styles.contain : ""}`}
         src={project.image}
         alt={project.title}
-        width="300"
+        width={1000}
+        height={1000}
+        quality={85}
       />
     </Link>
   );

@@ -19,3 +19,5 @@ bun dev
 - Login system for admin panel
 - Input security (For user and API)
 - Custom image uploading
+- Add more tests
+- Update Favicon

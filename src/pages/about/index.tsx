@@ -20,6 +20,8 @@ export default function Home() {
               alt="Profile Picture"
               width={700}
               height={900}
+              priority
+              quality={85}
             />
             <div className={styles.aboutText}>
               <p>

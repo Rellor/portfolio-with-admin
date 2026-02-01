@@ -3,6 +3,7 @@ import { Check, Pen, TrashIcon, X } from "lucide-react";
 import { useState } from "react";
 import Input from "@/components/atoms/input";
 import Checkbox from "@/components/atoms/checkbox";
+import Image from "next/image";
 
 export default function AdminCard({
   project,
@@ -36,11 +37,13 @@ export default function AdminCard({
   return (
     <div className={styles.adminCard}>
       <div className={styles.cardInfo}>
-        <img
+        <Image
           className={styles.cardImage}
           src={project.image}
           alt={project.title}
           width="300"
+          height="200"
+          quality={85}
         />
         <div className={styles.cardContent}>
           {editing ? (

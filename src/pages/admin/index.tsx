@@ -15,6 +15,9 @@ import Button from "@/components/atoms/button";
 import Checkbox from "@/components/atoms/checkbox";
 
 export async function getServerSideProps() {
+  // TODO: Add authentication check here
+  // if (!isAuthenticated) return { redirect: { destination: "/login" } };
+
   const projects = await getProjects();
   return {
     props: {
