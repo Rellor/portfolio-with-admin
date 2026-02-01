@@ -15,7 +15,8 @@ bun dev
 
 ## Additions list:
 
-- Mobile responsiveness
+- Mobile responsiveness tweaks
+- Mobile responsiveness Admin panel
 - Login system for admin panel
 - Input security (For user and API)
 - Custom image uploading

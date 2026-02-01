@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${styles.page}`}>
-        <main className={styles.main}>
+        <main className={`${styles.main} ${styles.aboutMain}`}>
           <h1 className={styles.title}>About Me</h1>
           <div className={styles.aboutContent}>
             <Image
